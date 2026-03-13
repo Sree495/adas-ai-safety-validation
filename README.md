@@ -10,6 +10,26 @@ Built on YOLOv8s + BDD (Berkeley Deep Drive) dataset. Runs fully on CPU.
 
 ---
 
+## Visual Results
+
+| Functional V&V | SOTIF — Synthetic Night |
+|---|---|
+| ![Baseline confusion matrix](results/val_conf30/confusion_matrix_normalized.png) | ![Night confusion matrix](results/safety_report/night/confusion_matrix_normalized.png) |
+
+| OOD Detection — Feature Space | Uncertainty Calibration |
+|---|---|
+| ![PCA scatter by time of day](results/ood_detector/pca_scatter_timeofday.png) | ![Reliability diagram](results/uncertainty_eval/reliability_diagram.png) |
+
+| GradCAM — Daytime vs Night Attention | Runtime Safety Monitor |
+|:---:|:---:|
+| ![GradCAM day vs night](results/explainability/D_gradcam_day_vs_night.png) | ![Signal dashboard](results/safety_monitor/D_signal_dashboard.png) |
+
+> **Top row:** Baseline model achieves mAP50=0.644 on nominal val. Synthetic night drops recall to 0.084 — flagged CRITICAL.
+> **Middle row:** OOD scores reveal night images cluster away from the nominal (clear+daytime) distribution. ECE=0.032 confirms model is well-calibrated.
+> **Bottom row:** GradCAM shows backbone attention hijacked by light sources at night instead of object geometry. Safety monitor output: 57% GO · 13% CAUTION · **30% STOP** — predominantly night scenes.
+
+---
+
 ## Why This Project Exists
 
 Training a detection model is the easy part. The hard question in ADAS/AD is:
