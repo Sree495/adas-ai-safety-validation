@@ -1,0 +1,43 @@
+# ── Virtual environment ───────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+
+# ── Dataset — too large for GitHub (download separately) ─────────────────────
+data/bdd-sample/
+data/augmented/
+
+# ── Trained model weights — too large for GitHub ─────────────────────────────
+# Download best.pt separately or retrain with train.py
+src/runs/
+runs/
+models/
+*.pt
+*.pth
+*.onnx
+
+# ── Generated results — reproducible by running the pipeline ─────────────────
+results/
+
+# ── YOLO cache files ──────────────────────────────────────────────────────────
+*.cache
+*.npy
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── OS / IDE ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
